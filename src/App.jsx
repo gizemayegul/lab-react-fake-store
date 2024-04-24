@@ -5,6 +5,7 @@ import ProductDetailsPage from "./pages/ProductDetailsPage";
 import Cart from "./pages/Cart";
 
 import { Routes, Route } from "react-router-dom";
+import UserProfilePage from "./pages/UserProfilePage";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<ProductListPage />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/profile" element={<UserProfilePage />} />
+
         <Route
           path="/product/details/:productId"
           element={<ProductDetailsPage />}
