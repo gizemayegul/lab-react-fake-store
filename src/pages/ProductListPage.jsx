@@ -7,7 +7,8 @@ function ProductListPage() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products")
+    axios
+      .get("https://fakestoreapi.com/products")
       .then((response) => {
         const products = response.data;
         setProducts(products);
@@ -16,7 +17,17 @@ function ProductListPage() {
         console.log(error);
       });
   }, []);
-  
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get("https://fakestoreapi.com/products");
+  //       setProducts(response.data);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   return (
     <div className="px-4 py-8 border-b w-full">
