@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -12,7 +12,9 @@ export default function Cart() {
       .get("https://fakestoreapi.com/carts/6")
       .then((response) => {
         setCart(response.data);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
       })
       .catch((error) => {
         console.log(error);
@@ -24,7 +26,9 @@ export default function Cart() {
       .get("https://fakestoreapi.com/products")
       .then((response) => {
         setProductDetail(response.data);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1000);
       })
       .catch((error) => {
         console.log(error);
@@ -34,7 +38,7 @@ export default function Cart() {
   return (
     <>
       {loading ? (
-        <h1>...Loading</h1>
+        <h3 className="mt-4">...Loading</h3>
       ) : (
         <div className="bg-gray-100 py-6 px-4 m-2">
           {cart.products &&
@@ -56,7 +60,7 @@ export default function Cart() {
                             {detail.category}
                           </div>
                           <div className="mb-2 bg-indigo-400 py-1 px-4 text-white inline-block mt-4 mb-2 ml-4 rounded quantity">
-                            {product.quantity}
+                            Quantity {product.quantity}
                           </div>
                           <h1 className="text-2xl mt-4 font-bold absolute h-80">
                             {detail && detail.title}
